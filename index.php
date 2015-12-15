@@ -31,7 +31,7 @@ function renderWebsiteLinks($dirNames, $currentDir = null)
             $html .= '<li><a href="http://' . $dirName . '" target="_bank">' . $dirName . '[<a href="http://' . $dirName . '/admin" target="_bank">admin</a>]</li>';
         } else {
             if (is_dir($dirName)) {
-                $html .= '<li><h4>' . $dirName . '</h4></li>';
+                $html .= '<li><h4><a href="http://localhost/' . $dirName . '"</a>' . $dirName . '</h4></li>';
                 $html .= '<li>' . renderWebsiteLinks(dirList($dir), $dir) . '</li>';
             }
         }
