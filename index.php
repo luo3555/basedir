@@ -32,12 +32,15 @@ function renderWebsiteLinks($dirNames, $currentDir = null)
         } else {
             if (is_dir($dirName)) {
                 $html .= '<li><h4><a href="http://localhost/' . $dirName . '"</a>' . $dirName . '</h4></li>';
-                $html .= '<li>' . renderWebsiteLinks(dirList($dir), $dir) . '</li>';
+                $subDir = renderWebsiteLinks(dirList($dir), $dir);
+                $html =  !empty($subDir) ? $html . '<li>' . $subDir . '</li>' :  $html;
             }
         }
     }
 
-    return '<ul>' . $html . '</ul>';
+    $html = !empty($html) ? '<ul>' . $html . '</ul>' : $html;
+
+    return $html;
 }
 
 echo renderWebsiteLinks(dirList(ROOT_DIR));
