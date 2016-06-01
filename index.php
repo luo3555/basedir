@@ -28,7 +28,7 @@ function renderWebsiteLinks($dirNames, $currentDir = null)
     foreach($dirNames as $dirName) {
         $dir = $currentDir . DS . $dirName;
         if (preg_match("/.*\.com$/", $dir) && is_dir($dir)) {
-            $html .= '<li><a href="http://' . $dirName . '" target="_bank">' . $dirName . '[<a href="http://' . $dirName . '/admin" target="_bank">admin</a>]</li>';
+            $html .= '<li><a href="http://' . $dirName . '" target="_blank">' . $dirName . '[<a href="http://' . $dirName . '/admin" target="_blank">admin</a>]</li>';
         } else {
             if (is_dir($dirName)) {
                 $html .= '<li><h4><a href="http://localhost/' . $dirName . '"</a>' . $dirName . '</h4></li>';
