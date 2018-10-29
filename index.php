@@ -27,7 +27,7 @@ function renderWebsiteLinks($dirNames, $currentDir = null)
 
     foreach($dirNames as $dirName) {
         $dir = $currentDir . DS . $dirName;
-        if (preg_match("/.*\.[a-z]+$/", $dir) && is_dir($dir)) {
+        if (preg_match("/.*\.[a-z]{2,3}$/", $dir) && is_dir($dir)) {
             $html .= '<li><a href="http://' . $dirName . '" target="_blank">' . $dirName . '[<a href="http://' . $dirName . '/admin" target="_blank">admin</a>]</li>';
         } else {
             if (is_dir($dirName)) {
